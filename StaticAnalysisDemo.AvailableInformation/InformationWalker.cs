@@ -1,4 +1,5 @@
 using System;
+using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
 
@@ -22,7 +23,7 @@ namespace StaticAnalysisDemo.AvailableInformation
             base.VisitMethodDeclaration(node);
         }
 
-        private string GetFormattedLocation(CSharpSyntaxNode node)
+        private string GetFormattedLocation(SyntaxNode node)
         {
             var lineSpan = node.SyntaxTree.GetLineSpan(node.Span);
             var startPosition = lineSpan.StartLinePosition;
